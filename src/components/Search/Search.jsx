@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import "./Search.css";
+import buscarProdutos from "../../service/buscarProdutos";
 
 function Search() {
   const [search, setSearch] = useState("")
@@ -7,9 +8,7 @@ function Search() {
   const buscar = (e) => {
     // reload na pagina
     e.preventDefault();
-
-    
-    alert(search)
+    buscarProdutos(search)
   }
 
   return (

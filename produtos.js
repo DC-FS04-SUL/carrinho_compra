@@ -14221,6 +14221,6 @@ const produto = [
     }
 ]
 
-module.exports = {
+export  {
     produto
-};
+}
