@@ -1,5 +1,5 @@
-import React, { useEffect, useContext, useState } from 'react';
-
+import { useEffect, useState } from 'react';
+import ProductCard from "../ProductCard/ProductCard";
 // const { produtos } = require('../services');
 
 import './Products.css';
@@ -24,7 +24,7 @@ function Products() {
 
   return (
       <section className="products container">
-        {produtos.map((produto, index) => (<p key={index}>{produto.title}</p>))}
+        {produtos.map((produto, index) => (<ProductCard key={index} item={produto}/>))}
       </section>
   )
     
