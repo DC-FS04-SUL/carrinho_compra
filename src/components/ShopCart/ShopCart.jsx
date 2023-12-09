@@ -1,17 +1,22 @@
-import { useState } from "react";
+import { useContext } from "react";
 import "./ShopCart.css";
 import { BsFillCartFill } from "react-icons/bs";
 
+// Context
+import { Context } from "../../context/Context";
+
 function ShopCart() {
-  const [count, setCount] = useState(0);
+  const { itensCarrinho } = useContext(Context);
 
   return (
     <button
       type="button"
       className="btn btn-primary"
-      // onClick={atualizarCarrinho}
+      onClick={() => {
+        console.log("itensCarrinho ", itensCarrinho);
+      }}
     >
-      <div className="badge" value={count}>
+      <div className="badge" value={itensCarrinho.length}>
         <BsFillCartFill fontSize="1.5em" />
       </div>
     </button>

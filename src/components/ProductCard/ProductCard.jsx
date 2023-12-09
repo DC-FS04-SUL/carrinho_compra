@@ -1,8 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 
 import "./ProductCard.css";
 
+// Context
+import { Context } from "../../context/Context";
+
 function ProductCard({ item }) {
+  const { addCarrinho } = useContext(Context)
+
 
   const buscarImagem = (url) => {
     if (url === undefined) {
@@ -29,6 +34,7 @@ function ProductCard({ item }) {
 
   const atualizarCarrinho = () => {
     console.log("Produto: ", item);
+    addCarrinho(item)
   };
 
   return (
