@@ -22,7 +22,7 @@ function Products() {
       <section>
         {produtos.map((element) => (
           // <p key={index}>{element.title}</p>
-          <ProductCard />
+          <ProductCard  key={element.id}  item={element}/>
         ))}
       </section>
     </main>
