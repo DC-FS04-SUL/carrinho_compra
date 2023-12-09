@@ -1,10 +1,18 @@
 .products {
   padding: 120px 20px 50px;
   display: grid;
+  /* 
+    Define a estrutura das colunas na grade.
+    repeat(auto-fill, minmax(200px, 1fr)) significa que as colunas
+    serão repetidas
+    automaticamente para preencher o contêiner,
+    e cada coluna terá uma largura mínima de 200 pixels e uma largura máxima de
+    1fr (fração da largura total disponível).    
+  */
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
 }
 
-.tamanho{
+.tamanho {
   width: 18rem;
 }
