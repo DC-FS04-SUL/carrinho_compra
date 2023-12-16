@@ -6,11 +6,7 @@ import "./VisualisarItens.css";
 import { Context } from "../../context/Context";
 
 function VisualisarItens({ item }) {
-  const { addCarrinho, buscarImagem, converte_real } = useContext(Context);
-
-  const atualizarCarrinho = () => {    
-    addCarrinho(item);
-  };
+  const { removerItemCarrinho, buscarImagem, converte_real } = useContext(Context);
 
   return (
     <>
@@ -33,7 +29,7 @@ function VisualisarItens({ item }) {
                   <button
                     href="#"
                     className="btn btn-danger"
-                    onClick={atualizarCarrinho}
+                    onClick={ ()=> removerItemCarrinho(item.id)}
                   >
                     Remover
                   </button>

@@ -47,16 +47,15 @@ export const ThemeProvider = ({ children }) => {
     setValidAuth(!validAuth);
   };
 
-  // const deleteCarrinho = (item) => {
-  //   setItensCarrinho(item);
-  // };
+  const deleteCarrinho = (item) => {
+    setItensCarrinho(item);
+  };
 
-  // const removerItemCarrinho = (id) => {
-  //   // procurar pelo id do produto
-  //   //
-
-  //   deleteCarrinho(item)
-  // }
+  const removerItemCarrinho = (id) => {
+    // procurar pelo id do produto
+    const novaLista = itensCarrinho.filter((item) => item.id != id)
+    deleteCarrinho(novaLista)
+  }
 
   //Importações
   const dataAll = {
@@ -66,6 +65,7 @@ export const ThemeProvider = ({ children }) => {
     // add item ou produto no carrinho
     itensCarrinho,
     addCarrinho,
+    removerItemCarrinho,
     // logica de login
     validAuth,
     login,
