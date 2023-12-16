@@ -8,7 +8,13 @@ import { Context } from "../../context/Context";
 
 function Header() {
   const { alterarTema } = useContext(Context)
-  // const [count, setCount] = useState(0)
+
+  /*
+    TODO::
+    Redirecionar para pagina principal 'Navbar'.
+    Criar logica de menu para login, logout e mudar tema.
+    Cria logica de Menu lateral para mostrar o menu de login e Mudar tema
+  */
 
   return (
     <nav className="navbar bg-body-tertiary">

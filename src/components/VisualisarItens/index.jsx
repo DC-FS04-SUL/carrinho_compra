@@ -8,6 +8,12 @@ import { Context } from "../../context/Context";
 function VisualisarItens({ item }) {
   const { removerItemCarrinho, buscarImagem, converte_real } = useContext(Context);
 
+
+  /*
+    TODO::
+    Remover e Adicionar produtos repetidos na lista '-< 1 >+'
+  */
+
   return (
     <>
 

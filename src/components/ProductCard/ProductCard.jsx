@@ -13,6 +13,13 @@ function ProductCard({ item }) {
     addCarrinho(item);
   };
 
+  const telaFinalizarCompra = () => {
+    /*
+      TODO::
+      Logica de adicionar produto no carrinho e redirecionar para finalizar compra
+    */
+  }
+
   return (
     <>
       <div className="card tamanho_card">
@@ -38,7 +45,7 @@ function ProductCard({ item }) {
             <button
               href="#"
               className="btn btn-primary"
-              onClick={atualizarCarrinho}
+              onClick={telaFinalizarCompra}
             >
               Comprar
             </button>

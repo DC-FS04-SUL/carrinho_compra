@@ -3,6 +3,15 @@ import { Navigate } from "react-router-dom";
 // contextHome
 import { Context } from "../context/Context";
 
+
+/*
+  TODO::
+    Logica de login.
+    Logica de cadastrar.
+    Logica de endereço.
+*/
+
+
 function Login() {
   const { login, validAuth } = useContext(Context);
 
