@@ -1,0 +1,11 @@
+.tamanho_card {
+    width: 18rem;
+}
+
+.card-main {
+    max-width: 540px;
+}
+
+.img-width {
+    width: 50%;
+}

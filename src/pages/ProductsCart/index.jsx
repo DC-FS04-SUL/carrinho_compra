@@ -12,11 +12,13 @@ function ProductsCart() {
   return (
     <main data-bs-theme={theme}>
       <Header />
-      <section className="produtos">
-        {itensCarrinho.map((element) => (
-          // <p key={element.id}>{element.title}</p>
-          <VisualisarItens  key={element.id}  item={element}/>
-        ))}
+      <section className="container text-center">
+        <div className="row">
+          {itensCarrinho.map((element) => (
+            // <p key={element.id}>{element.title}</p>
+            <VisualisarItens key={element.id} item={element} />
+          ))}
+        </div>
       </section>
     </main>
   );
