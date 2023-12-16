@@ -6,32 +6,7 @@ import "./ProductCard.css";
 import { Context } from "../../context/Context";
 
 function ProductCard({ item }) {
-  const { addCarrinho } = useContext(Context);
-
-  const buscarImagem = (url) => {
-    if (url === undefined) {
-      return "";
-    }
-
-    const url_img = url.split("-I.jpg")[0];
-
-    const new_url_img = `${url_img}-W.jpg`;
-
-    return new_url_img;
-  };
-
-  const converte_real = (numero) => {
-    if (numero === undefined) {
-      return "????????";
-    }
-
-    const novo_valor = numero.toLocaleString("pt-br", {
-      style: "currency",
-      currency: "BRL",
-    });
-
-    return novo_valor;
-  };
+  const { addCarrinho, buscarImagem, converte_real } = useContext(Context);
 
   const atualizarCarrinho = () => {
     console.log("Produto: ", item);

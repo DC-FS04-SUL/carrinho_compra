@@ -5,10 +5,7 @@ import ProductCard from "../ProductCard/ProductCard";
 import "./Products.css";
 
 function Products() {
-  const [produtos, setProdutos] = useState([
-    { title: "teste 1" },
-    { title: "teste 2" },
-  ]);
+  const [produtos, setProdutos] = useState([]);
 
   // User Effect iniciar assim que o componente for chamado
   useEffect(() => {

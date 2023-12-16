@@ -12,6 +12,7 @@ function Login() {
 
   return (
     <>
+    {/* navigation */}
       {validAuth ? <Navigate to="/" /> : <></>}
 
       <h1> {validAuth ? "Logado" : "Fazer Login"}</h1>
