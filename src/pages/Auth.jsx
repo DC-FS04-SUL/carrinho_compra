@@ -3,8 +3,8 @@ import {
   Navigate,
 } from "react-router-dom";
 
-function Auth() {
-  const [login, setLogin] = useState(false);
+
+const Auth = ({}) => {
 
   return <>{login ? <Navigate to="/login" /> : <Navigate to="/home" />}</>;
 }

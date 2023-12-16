@@ -4,6 +4,7 @@ export const Context = createContext();
 
 export const ThemeProvider = ({ children }) => {
   // States variaveis
+  const [validAuth, setValidAuth] = useState(true);
   const [theme, setTheme] = useState("light");
   const [itensCarrinho, setItensCarrinho] = useState([]);
 
@@ -16,6 +17,12 @@ export const ThemeProvider = ({ children }) => {
     setItensCarrinho([...itensCarrinho, item]);
   };
 
+
+  const login = (login, senha) => {
+    console.log(login, senha);
+    setValidAuth(!validAuth);
+  }
+
   // const deleteCarrinho = (item) => {
   //   setItensCarrinho(item);
   // };
@@ -24,7 +31,6 @@ export const ThemeProvider = ({ children }) => {
   // const removerItemCarrinho = (id) => {
   //   // procurar pelo id do produto
   //   // 
-
 
   //   deleteCarrinho(item)
   // }
@@ -36,7 +42,10 @@ export const ThemeProvider = ({ children }) => {
     alterarTema,
     // add item ou produto no carrinho
     itensCarrinho,
-    addCarrinho
+    addCarrinho,
+    // logica de login
+    validAuth,
+    login
   };
 
   return <Context.Provider value={dataAll}>{children}</Context.Provider>;
