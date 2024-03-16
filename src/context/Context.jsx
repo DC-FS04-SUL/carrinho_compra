@@ -1,13 +1,14 @@
 import { createContext, useState, useEffect } from "react";
-import getAllProdutos from "../service/getAllProdutos";
+import Produto from "../service/Produto";
 
 export const Context = createContext();
 
 export const ThemeProvider = ({ children }) => {
   // States variaveis
-  const [validAuth, setValidAuth] = useState(true);
+  const [validAuth, setValidAuth] = useState(false);
   const [theme, setTheme] = useState("light");
   const [itensCarrinho, setItensCarrinho] = useState([]);
+  const [produtos, setProdutos] = useState([]);
 
   // Funções
   const alterarTema = () => {
@@ -54,13 +55,13 @@ export const ThemeProvider = ({ children }) => {
 
   const removerItemCarrinho = (id) => {
     // procurar pelo id do produto
-    const novaLista = itensCarrinho.filter((item) => item.id != id)
-    deleteCarrinho(novaLista)
-  }
+    const novaLista = itensCarrinho.filter((item) => item.id != id);
+    deleteCarrinho(novaLista);
+  };
 
-  const buscarProdutos = (search) => {
-    return getAllProdutos(search);
-  }
+  const buscarProdutos = async (search) => {
+    setProdutos(await Produto.getAllProdutos(search));
+  };
 
   //Importações
   const dataAll = {
@@ -71,6 +72,8 @@ export const ThemeProvider = ({ children }) => {
     itensCarrinho,
     addCarrinho,
     removerItemCarrinho,
+    // Produtos
+    produtos,
     // logica de login
     validAuth,
     login,
@@ -79,8 +82,7 @@ export const ThemeProvider = ({ children }) => {
     buscarImagem,
     converte_real,
     //api produtos
-    buscarProdutos
-
+    buscarProdutos,
   };
 
   return <Context.Provider value={dataAll}>{children}</Context.Provider>;

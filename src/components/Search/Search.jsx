@@ -1,14 +1,17 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import "./Search.css";
-// import buscarProdutos from "../../service/buscarProdutos";
+
+// contextHome
+import { Context } from "../../context/Context";
 
 function Search() {
   const [search, setSearch] = useState("")
+  const { buscarProdutos } = useContext(Context)
 
-  const buscar = (e) => {
+  const buscar = async (e) => {
     // reload na pagina
     e.preventDefault();
-    // buscarProdutos(search)
+    await buscarProdutos(search);
   }
 
   return (
