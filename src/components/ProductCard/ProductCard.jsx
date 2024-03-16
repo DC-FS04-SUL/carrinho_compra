@@ -24,13 +24,13 @@ function ProductCard({ item }) {
     <>
       <div className="card tamanho_card">
         <img
-          src={buscarImagem(item.thumbnail)}
+          src={buscarImagem(item.img)}
           className="card-img-top"
           alt="..."
         />
         <div className="card-body">
-          <h5 className="card-title">{item.title}</h5>
-          <p className="card-text">{converte_real(item.price)}</p>
+          <h5 className="card-title">{item.nome}</h5>
+          <p className="card-text">{converte_real(item.preco)}</p>
 
           {/* dar um margin ou gap */}
           <div className="conatianer row gap-2">

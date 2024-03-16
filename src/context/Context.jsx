@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from "react";
+import getAllProdutos from "../service/getAllProdutos";
 
 export const Context = createContext();
 
@@ -57,6 +58,10 @@ export const ThemeProvider = ({ children }) => {
     deleteCarrinho(novaLista)
   }
 
+  const buscarProdutos = (search) => {
+    return getAllProdutos(search);
+  }
+
   //Importações
   const dataAll = {
     // Tema de dark mode
@@ -72,7 +77,10 @@ export const ThemeProvider = ({ children }) => {
 
     // Helps
     buscarImagem,
-    converte_real
+    converte_real,
+    //api produtos
+    buscarProdutos
+
   };
 
   return <Context.Provider value={dataAll}>{children}</Context.Provider>;

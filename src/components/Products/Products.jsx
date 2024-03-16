@@ -1,10 +1,13 @@
-import { useState, useEffect } from "react";
-import buscarProdutos from "../../service/buscarProdutos";
-
+import { useState, useEffect, useContext } from "react";
 import ProductCard from "../ProductCard/ProductCard";
 import "./Products.css";
 
+
+// contextHome
+import { Context } from "../../context/Context";
+
 function Products() {
+  const { buscarProdutos } = useContext(Context)
   const [produtos, setProdutos] = useState([]);
 
   // User Effect iniciar assim que o componente for chamado
@@ -12,7 +15,7 @@ function Products() {
     buscarProdutos().then((resultado) => {
       setProdutos(resultado);
     });
-  }, [produtos]);
+  }, []);
 
   return (
     <main>
