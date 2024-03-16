@@ -1,5 +1,5 @@
-import { useContext } from 'react'
-
+import { useContext } from "react";
+import { Navigate } from "react-router-dom";
 import Header from "../components/Header/Header";
 import Products from "../components/Products/Products";
 
@@ -7,10 +7,11 @@ import Products from "../components/Products/Products";
 import { Context } from "../context/Context";
 
 function Home() {
-  const { theme } = useContext(Context)
+  const { theme, cliente, validAuth } = useContext(Context);
 
   return (
     <>
+      {!validAuth ? <Navigate to="/login" /> : <></>}
       <div data-bs-theme={theme}>
         <Header />
         <Products />

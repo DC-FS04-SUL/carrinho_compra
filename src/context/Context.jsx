@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import Produto from "../service/Produto";
+import Usuario from "../service/Usuario";
 
 export const Context = createContext();
 
@@ -9,6 +10,7 @@ export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState("light");
   const [itensCarrinho, setItensCarrinho] = useState([]);
   const [produtos, setProdutos] = useState([]);
+  const [cliente, setCliente] = useState({});
 
   // Funções
   const alterarTema = () => {
@@ -44,8 +46,11 @@ export const ThemeProvider = ({ children }) => {
     return novo_valor;
   };
 
-  const login = (login, senha) => {
-    console.log(login, senha);
+  const login = async (login, senha) => {
+    const email = "chico2wallison@gmail.com";
+
+    const cliente = await Usuario.validUsuario(email);
+    setCliente(cliente);
     setValidAuth(!validAuth);
   };
 
@@ -77,7 +82,7 @@ export const ThemeProvider = ({ children }) => {
     // logica de login
     validAuth,
     login,
-
+    cliente,
     // Helps
     buscarImagem,
     converte_real,
