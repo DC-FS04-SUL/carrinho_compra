@@ -48,18 +48,15 @@ export const ThemeProvider = ({ children }) => {
   };
 
   const login = async (login, senha) => {
-    const email = "chico2wallison@gmail.com";
     // add logica de login da api
 
-    const resposta = Auth.login(login, senha);
+    const resposta = await Auth.login(login, senha);
 
     console.log("====================================");
-    console.log("login: ", resposta);
+    console.log("login: ", !resposta);
     console.log("====================================");
-    
-    const cliente = await Usuario.validUsuario(email);
-    setCliente(cliente);
-    setValidAuth(!validAuth);
+
+    setValidAuth(resposta);
   };
 
   const deleteCarrinho = (item) => {
