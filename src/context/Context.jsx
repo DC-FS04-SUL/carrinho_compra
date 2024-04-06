@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 import Produto from "../service/Produto";
 import Usuario from "../service/Usuario";
+import Auth from "../service/Auth";
 
 export const Context = createContext();
 
@@ -48,7 +49,14 @@ export const ThemeProvider = ({ children }) => {
 
   const login = async (login, senha) => {
     const email = "chico2wallison@gmail.com";
+    // add logica de login da api
 
+    const resposta = Auth.login(login, senha);
+
+    console.log("====================================");
+    console.log("login: ", resposta);
+    console.log("====================================");
+    
     const cliente = await Usuario.validUsuario(email);
     setCliente(cliente);
     setValidAuth(!validAuth);
