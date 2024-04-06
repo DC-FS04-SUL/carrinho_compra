@@ -2,12 +2,13 @@ import { useContext, useEffect, useState } from "react";
 import "./ProductsCart.css";
 import Header from "../../components/Header/Header";
 import VisualisarItens from "../../components/VisualisarItens";
+import { Navigate } from "react-router-dom";
 
 // contextHome
 import { Context } from "../../context/Context";
 
 function ProductsCart() {
-  const { theme, itensCarrinho, converte_real } = useContext(Context);
+  const { theme, itensCarrinho, converte_real, validAuth } = useContext(Context);
 
   /*
     TODO::
@@ -41,7 +42,9 @@ function ProductsCart() {
   }
 
   return (
+    
     <main data-bs-theme={theme}>
+      {!validAuth ? <Navigate to="/login" /> : <></>}
       <Header />
       <section className="container text-center">
         <div className="row">

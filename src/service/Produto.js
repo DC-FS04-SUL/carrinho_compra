@@ -1,3 +1,6 @@
+import instance from "./interceptors";
+
+
 const getAllProdutos = async (search) => {
   // Logica de buscar produto
   console.log(search);
@@ -12,25 +15,24 @@ const getAllProdutos = async (search) => {
 
     const url = `http://localhost:3000/produtos/search/?search=${search}`;
 
-    const produtos = await fetch(url, options)
-      .then((response) => response.json())
-      .then((response) => response)
-      .catch((err) => console.error(err));
+    const resposta = await instance.get(url);
+
+    const produtos =  resposta.data;
 
     return produtos;
   } else {
     //  primeiro teste da API
-    const options = {
-      method: "GET",
-      headers: { "User-Agent": "insomnia/8.5.1", Authorization: "Basic Og==" },
-    };
+    const url = "http://localhost:3000/produtos/";
 
-    const produtos = await fetch("http://localhost:3000/produtos/", options)
-      .then((response) => response.json())
-      .then((response) => response)
-      .catch((err) => console.error(err));
+    const resposta = await instance.get(url);
 
-    return produtos;
+    console.log('====================================');
+    console.log("resposta: ", resposta);
+    console.log('====================================');
+
+    const produto = resposta.data;
+
+    return produto;
   }
 };
 
