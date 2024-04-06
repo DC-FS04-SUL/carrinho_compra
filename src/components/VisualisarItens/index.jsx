@@ -21,15 +21,15 @@ function VisualisarItens({ item }) {
         <div className="row g-0">
           <div className="col-md-4 ">
             <img
-              src={buscarImagem(item.thumbnail)}
+              src={buscarImagem(item.img)}
               className="img-fluid rounded-start img-width"
               alt="..."
             />
           </div>
           <div className="col-md-8">
             <div className="card-body">
-              <h5 className="card-title">{item.title}</h5>
-              <p className="card-text">{converte_real(item.price)}</p>
+              <h5 className="card-title">{item.nome}</h5>
+              <p className="card-text">{converte_real(item.preco)}</p>
               <p className="card-text">
                 <small className="text-body-secondary">
                   <button

@@ -25,8 +25,8 @@ function ProductsCart() {
     let soma = 0;
 
     for (let index = 0; index < itensCarrinho.length; index++) {
-      (soma += itensCarrinho[index].price),
-        console.log(soma, itensCarrinho[index].price);
+      (soma += itensCarrinho[index].preco),
+        console.log(soma, itensCarrinho[index].preco);
     }
 
     setValorTotal(soma);
