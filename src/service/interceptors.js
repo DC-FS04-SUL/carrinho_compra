@@ -6,7 +6,7 @@ const instance = axios.create({
     window.location.hostname === "localhost"
       ? "http://localhost:3000/"
       // Prod
-      : "https://api.mysite.com/api/v1",
+      : "http://localhost:3000/",
 });
 
 // instance.defaults.headers.common['Content-Type'] = 'multipart/form-data';
