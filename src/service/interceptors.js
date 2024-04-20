@@ -4,7 +4,8 @@ const instance = axios.create({
   // URL DE PROD OU HML
   baseURL:
     window.location.hostname === "localhost"
-      ? "http://localhost:5001/api/v1"
+      ? "http://localhost:3000/"
+      // Prod
       : "https://api.mysite.com/api/v1",
 });
 
@@ -24,6 +25,7 @@ instance.interceptors.response.use(
       window.location.href = "/login";
       return;
     }
+    console.log("error: ", error)
     return Promise.reject(error);
   }
 );
